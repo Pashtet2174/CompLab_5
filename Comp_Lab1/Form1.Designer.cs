@@ -61,6 +61,7 @@ partial class Form1
         языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         русскийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         английскийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        btnShowAst = new System.Windows.Forms.ToolStripMenuItem();
         toolStrip1 = new System.Windows.Forms.ToolStrip();
         toolStripButton1 = new System.Windows.Forms.ToolStripButton();
         toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -75,13 +76,13 @@ partial class Form1
         toolStripButton8 = new System.Windows.Forms.ToolStripButton();
         splitContainer1 = new System.Windows.Forms.SplitContainer();
         tabControlEditor = new System.Windows.Forms.TabControl();
+        rtbAstOutput = new System.Windows.Forms.RichTextBox();
         dgvErrors = new System.Windows.Forms.DataGridView();
         colFragment = new System.Windows.Forms.DataGridViewTextBoxColumn();
         colPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
         ColMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
         statusStrip1 = new System.Windows.Forms.StatusStrip();
         lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-        rtbAstOutput = new System.Windows.Forms.RichTextBox();
         menuStrip1.SuspendLayout();
         toolStrip1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -98,12 +99,12 @@ partial class Form1
         menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
         menuStrip1.GripMargin = new System.Windows.Forms.Padding(0);
         menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-        menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { файлToolStripMenuItem, текстToolStripMenuItem, текстToolStripMenuItem1, пускToolStripMenuItem, справкаToolStripMenuItem, языкToolStripMenuItem });
+        menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { файлToolStripMenuItem, текстToolStripMenuItem, текстToolStripMenuItem1, пускToolStripMenuItem, справкаToolStripMenuItem, языкToolStripMenuItem, btnShowAst });
         menuStrip1.Location = new System.Drawing.Point(0, 0);
-        menuStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 47868);
+        menuStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 74794);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new System.Windows.Forms.Padding(0);
-        menuStrip1.Size = new System.Drawing.Size(1112, 29);
+        menuStrip1.Size = new System.Drawing.Size(1738, 29);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -309,16 +310,23 @@ partial class Form1
         // русскийToolStripMenuItem
         // 
         русскийToolStripMenuItem.Name = "русскийToolStripMenuItem";
-        русскийToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+        русскийToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
         русскийToolStripMenuItem.Text = "Русский";
         русскийToolStripMenuItem.Click += russianToolStripMenuItem_Click;
         // 
         // английскийToolStripMenuItem
         // 
         английскийToolStripMenuItem.Name = "английскийToolStripMenuItem";
-        английскийToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+        английскийToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
         английскийToolStripMenuItem.Text = "Английский";
         английскийToolStripMenuItem.Click += englishToolStripMenuItem_Click;
+        // 
+        // btnShowAst
+        // 
+        btnShowAst.Name = "btnShowAst";
+        btnShowAst.Size = new System.Drawing.Size(137, 29);
+        btnShowAst.Text = "Показать AST";
+        btnShowAst.Click += btnShowAst_Click;
         // 
         // toolStrip1
         // 
@@ -329,7 +337,7 @@ partial class Form1
         toolStrip1.Location = new System.Drawing.Point(0, 29);
         toolStrip1.Name = "toolStrip1";
         toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-        toolStrip1.Size = new System.Drawing.Size(1112, 47);
+        toolStrip1.Size = new System.Drawing.Size(1738, 47);
         toolStrip1.TabIndex = 0;
         toolStrip1.Text = "toolStrip1";
         // 
@@ -451,7 +459,7 @@ partial class Form1
         splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
         splitContainer1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
         splitContainer1.Location = new System.Drawing.Point(0, 76);
-        splitContainer1.Margin = new System.Windows.Forms.Padding(375973440, 48, 375973440, 48);
+        splitContainer1.Margin = new System.Windows.Forms.Padding(587458496, 75, 587458496, 75);
         splitContainer1.Name = "splitContainer1";
         splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
         // 
@@ -463,9 +471,9 @@ partial class Form1
         // 
         splitContainer1.Panel2.Controls.Add(rtbAstOutput);
         splitContainer1.Panel2.Controls.Add(dgvErrors);
-        splitContainer1.Size = new System.Drawing.Size(1112, 613);
-        splitContainer1.SplitterDistance = 246;
-        splitContainer1.SplitterWidth = 62;
+        splitContainer1.Size = new System.Drawing.Size(1738, 1000);
+        splitContainer1.SplitterDistance = 401;
+        splitContainer1.SplitterWidth = 98;
         splitContainer1.TabIndex = 2;
         splitContainer1.Text = "splitContainer1";
         // 
@@ -474,13 +482,25 @@ partial class Form1
         tabControlEditor.AllowDrop = true;
         tabControlEditor.Dock = System.Windows.Forms.DockStyle.Fill;
         tabControlEditor.Location = new System.Drawing.Point(0, 0);
-        tabControlEditor.Margin = new System.Windows.Forms.Padding(4410, 48, 4410, 48);
+        tabControlEditor.Margin = new System.Windows.Forms.Padding(6890, 75, 6890, 75);
         tabControlEditor.Name = "tabControlEditor";
         tabControlEditor.SelectedIndex = 0;
-        tabControlEditor.Size = new System.Drawing.Size(1112, 246);
+        tabControlEditor.Size = new System.Drawing.Size(1738, 401);
         tabControlEditor.TabIndex = 0;
         tabControlEditor.DragDrop += Form1_DragDrop;
         tabControlEditor.DragEnter += Form1_DragEnter;
+        // 
+        // rtbAstOutput
+        // 
+        rtbAstOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
+        rtbAstOutput.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
+        rtbAstOutput.Location = new System.Drawing.Point(0, 152);
+        rtbAstOutput.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+        rtbAstOutput.Name = "rtbAstOutput";
+        rtbAstOutput.ReadOnly = true;
+        rtbAstOutput.Size = new System.Drawing.Size(1738, 349);
+        rtbAstOutput.TabIndex = 1;
+        rtbAstOutput.Text = "";
         // 
         // dgvErrors
         // 
@@ -488,7 +508,7 @@ partial class Form1
         dgvErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colFragment, colPos, ColMessage });
         dgvErrors.Dock = System.Windows.Forms.DockStyle.Fill;
         dgvErrors.Location = new System.Drawing.Point(0, 0);
-        dgvErrors.Margin = new System.Windows.Forms.Padding(881, 48, 881, 48);
+        dgvErrors.Margin = new System.Windows.Forms.Padding(1376, 75, 1376, 75);
         dgvErrors.Name = "dgvErrors";
         dgvErrors.ReadOnly = true;
         dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
@@ -501,7 +521,7 @@ partial class Form1
         dgvErrors.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvErrors.RowHeadersWidth = 51;
         dgvErrors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        dgvErrors.Size = new System.Drawing.Size(1112, 305);
+        dgvErrors.Size = new System.Drawing.Size(1738, 501);
         dgvErrors.TabIndex = 0;
         dgvErrors.Text = "dataGridView1";
         // 
@@ -534,10 +554,10 @@ partial class Form1
         // 
         statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
         statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { lblStatus });
-        statusStrip1.Location = new System.Drawing.Point(0, 667);
+        statusStrip1.Location = new System.Drawing.Point(0, 1054);
         statusStrip1.Name = "statusStrip1";
-        statusStrip1.Padding = new System.Windows.Forms.Padding(185, 0, 1965, 0);
-        statusStrip1.Size = new System.Drawing.Size(1112, 22);
+        statusStrip1.Padding = new System.Windows.Forms.Padding(289, 0, 3070, 0);
+        statusStrip1.Size = new System.Drawing.Size(1738, 22);
         statusStrip1.TabIndex = 1;
         // 
         // lblStatus
@@ -546,23 +566,12 @@ partial class Form1
         lblStatus.Name = "lblStatus";
         lblStatus.Size = new System.Drawing.Size(0, 16);
         // 
-        // rtbAstOutput
-        // 
-        rtbAstOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
-        rtbAstOutput.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        rtbAstOutput.Location = new System.Drawing.Point(0, 147);
-        rtbAstOutput.Name = "rtbAstOutput";
-        rtbAstOutput.ReadOnly = true;
-        rtbAstOutput.Size = new System.Drawing.Size(1112, 158);
-        rtbAstOutput.TabIndex = 1;
-        rtbAstOutput.Text = "";
-        // 
         // Form1
         // 
         AllowDrop = true;
         AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1112, 689);
+        ClientSize = new System.Drawing.Size(1738, 1076);
         Controls.Add(statusStrip1);
         Controls.Add(splitContainer1);
         Controls.Add(toolStrip1);
@@ -591,6 +600,8 @@ partial class Form1
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.ToolStripMenuItem btnShowAst;
 
     private System.Windows.Forms.RichTextBox rtbAstOutput;
 

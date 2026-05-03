@@ -11,10 +11,8 @@ public class SemanticAnalyzer
         int i = 0;
         while (i < tokens.Count)
         {
-            // Ищем начало конструкции "const val"
             if (tokens[i].Code == (int)TokenType.KeywordConst && i + 2 < tokens.Count)
             {
-                // Собираем данные для AST
                 var constNode = new ConstDeclNode();
                 constNode.Modifiers.Add("const");
                 
@@ -28,7 +26,6 @@ public class SemanticAnalyzer
                 {
                     constNode.Name = idToken.Value;
 
-                    // Правило 1: Уникальность идентификаторов
                     if (_symbolTable.CheckDuplicate(constNode.Name))
                     {
                         int prevLine = _symbolTable.GetDeclarationLine(constNode.Name);
@@ -38,13 +35,11 @@ public class SemanticAnalyzer
                             Position = idToken.StartPos,
                             Message = $"Ошибка: идентификатор \"{constNode.Name}\" уже объявлен ранее (строка {prevLine})"
                         });
-                        // Пропускаем добавление в AST из-за ошибки
                     }
                     else
                     {
                         _symbolTable.Declare(constNode.Name, idToken.Line);
                         
-                        // Извлекаем значение (ищем присваивание и литерал)
                         int assignIdx = i + 3;
                         if (assignIdx < tokens.Count && tokens[assignIdx].Code == (int)TokenType.Assignment)
                         {
@@ -53,7 +48,6 @@ public class SemanticAnalyzer
                             {
                                 var valToken = tokens[valIdx];
                                 
-                                // Правило 2: Совместимость типов (ожидаем строку)
                                 if (valToken.Code == (int)TokenType.StringConstant)
                                 {
                                     constNode.ValueNode = new StringLiteralNode { Value = valToken.Value };

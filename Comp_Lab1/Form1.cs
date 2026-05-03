@@ -9,7 +9,7 @@ public partial class Form1 : Form
 {
     Style BlueStyle = new TextStyle(Brushes.Blue, null, FontStyle.Bold);
     Style BrownStyle = new TextStyle(Brushes.Brown, null, FontStyle.Regular); 
-    
+    private SemanticAnalyzer _lastSemanticAnalyzer;
     public Form1()
     {
         
@@ -163,46 +163,33 @@ public partial class Form1 : Form
         }
 
         dgvErrors.Rows.Clear();
-        rtbAstOutput.Clear(); // Очищаем поле вывода AST перед новым запуском
+        rtbAstOutput.Clear(); 
 
-        // 1. Лексический анализ
         var scanner = new Scanner(CurrentEditor.Text);
         var allTokens = scanner.Analyze();
-
-        // 2. Синтаксический анализ
         var parser = new Parser(allTokens);
         parser.Analyze();
-        
-        // Вывод синтаксических ошибок
         foreach (var err in parser.Errors)
         {
             AddErrorToGrid(err.Message, err.Token.Value, err.Token);
         }
-
-        // 3. Семантический анализ и построение AST (запускаем в любом случае, чтобы найти все возможные ошибки)
-        var semanticAnalyzer = new SemanticAnalyzer();
-        semanticAnalyzer.Analyze(allTokens);
-
-        // Вывод семантических ошибок
-        foreach (var err in semanticAnalyzer.Errors)
+        _lastSemanticAnalyzer = new SemanticAnalyzer();
+        _lastSemanticAnalyzer.Analyze(allTokens);
+        foreach (var err in _lastSemanticAnalyzer.Errors)
         {
-            // Передаем сообщение, строку и позицию
             AddSemanticErrorToGrid(err.Message, err.Line, err.Position);
         }
 
-        // Вывод построенного AST дерева
-        if (semanticAnalyzer.AstRoots.Any())
+        if (_lastSemanticAnalyzer.AstRoots.Any())
         {
             var sb = new StringBuilder();
-            foreach (var root in semanticAnalyzer.AstRoots)
+            foreach (var root in _lastSemanticAnalyzer.AstRoots)
             {
                 root.Print(sb, "", true);
             }
             rtbAstOutput.Text = sb.ToString();
         }
-
-        // Итоги
-        int totalErrors = parser.Errors.Count + semanticAnalyzer.Errors.Count;
+        int totalErrors = parser.Errors.Count + _lastSemanticAnalyzer.Errors.Count;
 
         if (totalErrors == 0)
         {
@@ -231,14 +218,8 @@ public partial class Form1 : Form
     private void AddSemanticErrorToGrid(string message, int line, int pos)
     {
         string location = string.Format(Label.ErrorLocationFormat, line, pos);
-    
-        // В dgvErrors порядок столбцов: (Значение/Сообщение, Локация, Тип)
         int rowIndex = dgvErrors.Rows.Add(message, location, "Семантическая ошибка");
-    
-        // Для семантических ошибок тег токена может быть null, так как мы берем данные напрямую
         dgvErrors.Rows[rowIndex].Tag = null; 
-
-        // Используем другой оттенок красного, чтобы визуально отличать от ошибок синтаксиса
         dgvErrors.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightSalmon;
         dgvErrors.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Black;
     }
@@ -270,8 +251,6 @@ public partial class Form1 : Form
             }
             else
             {
-                // Если файла нет, выскочит окно с путем. 
-                // Вы сможете открыть этот путь в проводнике и проверить, есть ли там файл.
                 MessageBox.Show(string.Format(Label.FileNotFoundMsg, path), 
                     Label.ErrPrefix.TrimEnd(':', ' '), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -609,5 +588,19 @@ public partial class Form1 : Form
         {
             tabControlEditor.TabPages.Remove(currentTab);
         }
+    }
+    private void btnShowAst_Click(object sender, EventArgs e)
+    {
+        if (_lastSemanticAnalyzer == null || !_lastSemanticAnalyzer.AstRoots.Any())
+        {
+            MessageBox.Show(
+                "Сначала запустите анализ кода, чтобы построить абстрактное синтаксическое дерево (AST).", 
+                "Дерево пусто", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
+            return;
+        }
+        var astForm = new AstVisualizerForm(_lastSemanticAnalyzer.AstRoots);
+        astForm.Show();
     }
 }

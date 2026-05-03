@@ -2,7 +2,6 @@ namespace Comp_Lab1;
 
 public class SymbolTable
 {
-    // Хранит имя идентификатора и номер строки, где он был впервые объявлен
     private readonly Dictionary<string, int> _symbols = new Dictionary<string, int>();
 
     public bool CheckDuplicate(string name) => _symbols.ContainsKey(name);
