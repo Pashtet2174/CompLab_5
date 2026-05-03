@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+    
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMsg" xml:space="preserve">
+    <value>Text Editor / Language Processor
+Version 1.0
+Developer: Pavel Obelenets</value>
+  </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Text Editor / Language Processor
+Version 1.0
+Developer: Pavel Ovelenets</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AnalysisErrorCount" xml:space="preserve">
+    <value>Total error count: {0}</value>
+  </data>
+  <data name="AnalysisNoErrors" xml:space="preserve">
+    <value>Syntax analysis: No errors found.</value>
+  </data>
+  <data name="AnalysisSuccess" xml:space="preserve">
+    <value>Analysis completed successfully. No errors found!</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Compiler</value>
+  </data>
+  <data name="colCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ColFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="colFragment" xml:space="preserve">
+    <value>Invalid fragment</value>
+  </data>
+  <data name="ColLine" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ColMessage" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="colPos" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="colType" xml:space="preserve">
+    <value>Token Type</value>
+  </data>
+  <data name="ErrEmptyInput" xml:space="preserve">
+    <value>Error: empty text.</value>
+  </data>
+  <data name="ErrEmptyMsg" xml:space="preserve">
+    <value>Please enter code for analysis.</value>
+  </data>
+  <data name="ErrEmptyStatus" xml:space="preserve">
+    <value>Error: empty text.</value>
+  </data>
+  <data name="ErrEmptyTitle" xml:space="preserve">
+    <value>Empty input</value>
+  </data>
+  <data name="ErrExpectedKeyword" xml:space="preserve">
+    <value>Keyword expected.</value>
+  </data>
+  <data name="ErrExtraElement" xml:space="preserve">
+    <value>Extra element '{0}' before '{1}'</value>
+  </data>
+  <data name="ErrFileNotFound" xml:space="preserve">
+    <value>File not found!
+Check if it is copied to: {0}</value>
+  </data>
+  <data name="ErrFileRead" xml:space="preserve">
+    <value>Error: </value>
+  </data>
+  <data name="ErrLexical" xml:space="preserve">
+    <value>Lexical error: {0} '{1}'</value>
+  </data>
+  <data name="ErrMissingElement" xml:space="preserve">
+    <value>Missing required element: '{0}'</value>
+  </data>
+  <data name="ErrNoTabs" xml:space="preserve">
+    <value>Error: no open tabs.</value>
+  </data>
+  <data name="ErrNoTabsMsg" xml:space="preserve">
+    <value>Please create or open a file for analysis first.</value>
+  </data>
+  <data name="ErrNoTabsStatus" xml:space="preserve">
+    <value>Error: no open tabs.</value>
+  </data>
+  <data name="ErrNoTabsTitle" xml:space="preserve">
+    <value>Tab not found</value>
+  </data>
+  <data name="ErrOpenPage" xml:space="preserve">
+    <value>Could not open page: {0}</value>
+  </data>
+  <data name="ErrOpenPage1" xml:space="preserve">
+    <value>Failed to open page: </value>
+  </data>
+  <data name="ErrorLocationFormat" xml:space="preserve">
+    <value>line {0}, pos {1}</value>
+  </data>
+  <data name="ErrPrefix" xml:space="preserve">
+    <value>Error: </value>
+  </data>
+  <data name="ErrUnexpectedEOF" xml:space="preserve">
+    <value>Unexpected end of file. Missing: '{0}'</value>
+  </data>
+  <data name="ExitConfirm" xml:space="preserve">
+    <value>Save changes to file {0}?</value>
+  </data>
+  <data name="ExitTitle" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="FileNotFoundMsg" xml:space="preserve">
+    <value>File not found!
+Check path: {0}</value>
+  </data>
+  <data name="FileSaved" xml:space="preserve">
+    <value>File saved successfully.</value>
+  </data>
+  <data name="GridLocation" xml:space="preserve">
+    <value>line {0}, pos {1}</value>
+  </data>
+  <data name="LangEn" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LangRu" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuClass" xml:space="preserve">
+    <value>Grammar Classification</value>
+  </data>
+  <data name="MenuCopy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="MenuCreate" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="MenuCut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="MenuDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MenuDocs" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="MenuEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="MenuExample" xml:space="preserve">
+    <value>Test Example</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="MenuFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="MenuGrammar" xml:space="preserve">
+    <value>Grammar</value>
+  </data>
+  <data name="MenuHelpRoot" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MenuLangRoot" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="MenuMethod" xml:space="preserve">
+    <value>Analysis Method</value>
+  </data>
+  <data name="MenuOpen" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="MenuPaste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="MenuRedo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="MenuRun" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="MenuSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MenuSaveAs" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="MenuSelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="MenuShowHelp" xml:space="preserve">
+    <value>View Help</value>
+  </data>
+  <data name="MenuSource" xml:space="preserve">
+    <value>Source Code</value>
+  </data>
+  <data name="MenuTask" xml:space="preserve">
+    <value>Problem Statement</value>
+  </data>
+  <data name="MenuText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="MenuUndo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="MsgEnterCode" xml:space="preserve">
+    <value>Please enter code for analysis.</value>
+  </data>
+  <data name="MsgLine" xml:space="preserve">
+    <value>line</value>
+  </data>
+  <data name="MsgOpenFirst" xml:space="preserve">
+    <value>Please create or open a file for analysis first.</value>
+  </data>
+  <data name="NewFile" xml:space="preserve">
+    <value>New file</value>
+</data>
+  <data name="ParserErrorCount" xml:space="preserve">
+    <value>Total errors: {0}</value>
+  </data>
+  <data name="ParserResultTitle" xml:space="preserve">
+    <value>Analysis Result</value>
+  </data>
+  <data name="ParserSuccessMsg" xml:space="preserve">
+    <value>Analysis completed successfully. No errors detected!</value>
+  </data>
+  <data name="ParserSuccessStatus" xml:space="preserve">
+    <value>Parsing: No errors found.</value>
+  </data>
+  <data name="SaveConfirmMsg" xml:space="preserve">
+    <value>Save changes to file {0}?</value>
+  </data>
+  <data name="StatusLineFormat" xml:space="preserve">
+    <value>Line: {0} | Total lines: {1}</value>
+  </data>
+  <data name="StatusLines" xml:space="preserve">
+    <value>Line: {0} | Total lines: {1}</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="TitleAnalysisResult" xml:space="preserve">
+    <value>Analysis Result</value>
+  </data>
+  <data name="TitleEmptyInput" xml:space="preserve">
+    <value>Empty input</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="TitleTabNotFound" xml:space="preserve">
+    <value>Tab not found</value>
+  </data>
+  <data name="TypeAssign" xml:space="preserve">
+    <value>assignment operator</value>
+  </data>
+  <data name="TypeErrorString" xml:space="preserve">
+    <value>unclosed string</value>
+  </data>
+  <data name="TypeErrorSymbol" xml:space="preserve">
+    <value>invalid character</value>
+  </data>
+  <data name="TypeIdentifier" xml:space="preserve">
+    <value>identifier</value>
+  </data>
+  <data name="TypeKeyword" xml:space="preserve">
+    <value>keyword</value>
+  </data>
+  <data name="TypeSemicolon" xml:space="preserve">
+    <value>semicolon</value>
+  </data>
+  <data name="TypeString" xml:space="preserve">
+    <value>string constant</value>
+  </data>
+  <data name="TypeWhitespace" xml:space="preserve">
+    <value>whitespace</value>
+  </data>
+</root>

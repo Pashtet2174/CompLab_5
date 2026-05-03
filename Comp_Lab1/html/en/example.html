@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Examples — Compiler</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; margin-top: 30px; background: #ebf5fb; padding: 8px 15px; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .example-card { border: 1px solid #e1e8ed; border-radius: 8px; padding: 15px; margin-bottom: 25px; background: #fff; }
+        .example-card p { margin: 5px 0; }
+        .status-ok { color: #27ae60; font-weight: bold; }
+        .status-error { color: #c0392b; font-weight: bold; }
+        .code-box { background: #2c3e50; color: #ecf0f1; padding: 8px 12px; border-radius: 4px; font-family: 'Consolas', monospace; display: inline-block; margin: 10px 0; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+<h1>Test Examples</h1>
+
+<div class="section">
+    <p>This section demonstrates the results of the syntax analyzer for various input data cases.</p>
+
+    <div class="example-card">
+        <h2>Example 1: Correct Input</h2>
+        <p><span class="status-ok">Status:</span> No errors found</p>
+        <div class="code-box">const val hi = "hello";</div>
+        <img src="../../Img/example4.png" alt="Correct input">
+    </div>
+
+    <div class="example-card">
+        <h2>Example 2: Syntax Error</h2>
+        <p><span class="status-error">Error:</span> Missing semicolon at the end of the expression</p>
+        <div class="code-box">const val hi = "hello"</div>
+        <img src="../../Img/example5.png" alt="Semicolon error">
+    </div>
+
+    <div class="example-card">
+        <h2>Example 3: Invalid Characters</h2>
+        <p><span class="status-error">Error:</span> Lexical error (characters ## are not in the alphabet)</p>
+        <div class="code-box">cons##t val zzz = "hello";</div>
+        <img src="../../Img/example6.png" alt="Invalid characters">
+    </div>
+
+    <div class="example-card">
+        <h2>Example 4: Multi-line Input with Errors</h2>
+        <p>The following example shows code with syntax violations on multiple lines:</p>
+
+        <pre class="code-box" style="display: block; width: auto; white-space: pre; padding: 15px;"><code>const val a = "first
+const v@al b = "second";
+const val c  "third";</code></pre>
+
+        <img src="../../Img/example7.png" alt="Multi-line input">
+    </div>
+
+</div>
+
+<div style="text-align: center; font-size: 0.8em; color: #95a5a6; margin-top: 30px;">
+    &copy; 2026 Help Documentation for the "Compiler" Application.
+</div>
+
+</body>
+</html>

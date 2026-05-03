@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Справочная система — Компилятор</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; margin-top: 30px; background: #ebf5fb; padding: 8px 15px; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
+        h3 { color: #34495e; margin-top: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; table-layout: fixed; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; overflow: hidden; }
+        th { background-color: #f8f9fa; color: #2c3e50; border-bottom: 2px solid #3498db; }
+        tr:hover { background-color: #fcfcfc; }
+        .kbd { background-color: #eee; border-radius: 3px; border: 1px solid #b4b4b4; box-shadow: 0 1px 1px rgba(0,0,0,.2); color: #333; display: inline-block; font-size: .85em; font-weight: 700; line-height: 1; padding: 3px 6px; white-space: nowrap; font-family: 'Courier New', Courier, monospace; }
+        .col-name { width: 25%; }
+        .col-desc { width: 50%; }
+        .col-keys { width: 25%; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>Руководство пользователя</h1>
+
+<div class="section">
+    <h2>1. Панель инструментов</h2>
+    <p>Кнопки быстрого доступа к основным функциям приложения:</p>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Кнопка</th>
+            <th class="col-desc">Функциональное назначение</th>
+            <th class="col-keys">Горячие клавиши</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Создать</td><td>Создание новой пустой вкладки.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">N</span></td></tr>
+        <tr><td>Открыть</td><td>Загрузка текстового файла с диска.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">O</span></td></tr>
+        <tr><td>Сохранить</td><td>Запись изменений в текущий файл.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">S</span></td></tr>
+        <tr><td>Отмена</td><td>Откат последнего действия (Undo).</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Z</span></td></tr>
+        <tr><td>Повтор</td><td>Возврат отмененного действия (Redo).</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Y</span></td></tr>
+        <tr><td>Копировать</td><td>Копирование выделения в буфер.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">C</span></td></tr>
+        <tr><td>Вырезать</td><td>Перемещение выделения в буфер.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">X</span></td></tr>
+        <tr><td>Вставить</td><td>Вставка текста из буфера.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">V</span></td></tr>
+        <tr><td>Справка</td><td>Открытие данного руководства.</td><td><span class="kbd">F1</span></td></tr>
+        <tr><td>О программе</td><td>Инфо о версии и разработчике.</td><td>—</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>2. Главное меню программы</h2>
+
+    <h3>Меню «Файл»</h3>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Пункт</th>
+            <th class="col-desc">Описание действия</th>
+            <th class="col-keys">Горячие клавиши</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Создать</td><td>Инициализация новой вкладки.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">N</span></td></tr>
+        <tr><td>Открыть</td><td>Выбор файла через диалоговое окно.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">O</span></td></tr>
+        <tr><td>Сохранить</td><td>Быстрое сохранение изменений.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">S</span></td></tr>
+        <tr><td>Сохранить как</td><td>Сохранение под новым именем.</td><td>—</td></tr>
+        <tr><td>Выход</td><td>Закрытие приложения.</td><td>—</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Меню «Правка»</h3>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Пункт</th>
+            <th class="col-desc">Описание действия</th>
+            <th class="col-keys">Горячие клавиши</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Отменить</td><td>Отмена последней правки.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Z</span></td></tr>
+        <tr><td>Повторить</td><td>Повтор отмененной правки.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Y</span></td></tr>
+        <tr><td>Вырезать</td><td>Удаление с копированием в буфер.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">X</span></td></tr>
+        <tr><td>Копировать</td><td>Дублирование в буфер обмена.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">C</span></td></tr>
+        <tr><td>Вставить</td><td>Вставка содержимого буфера.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">V</span></td></tr>
+        <tr><td>Удалить</td><td>Удаление без сохранения в буфер.</td><td><span class="kbd">Del</span></td></tr>
+        <tr><td>Выделить все</td><td>Выделение всего текста во вкладке.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">A</span></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>3. Дополнительные возможности</h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Особенность</th>
+            <th class="col-desc">Описание</th>
+            <th class="col-keys">Управление</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Drag-and-Drop</td><td>Открытие файла перетаскиванием.</td><td>Мышь</td></tr>
+        <tr><td>Масштаб</td><td>Изменение размера шрифта.</td><td><span class="kbd">Ctrl</span> + колесо мыши</td></tr>
+        <tr><td>Язык</td><td>Смена локализации (RU/EN).</td><td>Меню «Язык»</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align: center; font-size: 0.8em; color: #95a5a6; margin-top: 30px;">
+    &copy; 2026 Справочная документация приложения "Компилятор".
+</div>
+
+</body>
+</html>

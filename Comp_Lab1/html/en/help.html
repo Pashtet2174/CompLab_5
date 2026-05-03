@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help System — Compiler</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; margin-top: 30px; background: #ebf5fb; padding: 8px 15px; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
+        h3 { color: #34495e; margin-top: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; table-layout: fixed; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; overflow: hidden; }
+        th { background-color: #f8f9fa; color: #2c3e50; border-bottom: 2px solid #3498db; }
+        tr:hover { background-color: #fcfcfc; }
+        .kbd { background-color: #eee; border-radius: 3px; border: 1px solid #b4b4b4; box-shadow: 0 1px 1px rgba(0,0,0,.2); color: #333; display: inline-block; font-size: .85em; font-weight: 700; line-height: 1; padding: 3px 6px; white-space: nowrap; font-family: 'Courier New', Courier, monospace; }
+        .col-name { width: 25%; }
+        .col-desc { width: 50%; }
+        .col-keys { width: 25%; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>User Guide</h1>
+
+<div class="section">
+    <h2>1. Toolbar</h2>
+    <p>Quick access buttons for the main application functions:</p>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Button</th>
+            <th class="col-desc">Functionality</th>
+            <th class="col-keys">Shortcut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Create</td><td>Creates a new empty tab.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">N</span></td></tr>
+        <tr><td>Open</td><td>Loads a text file from disk.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">O</span></td></tr>
+        <tr><td>Save</td><td>Writes changes to the current file.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">S</span></td></tr>
+        <tr><td>Undo</td><td>Reverts the last action.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Z</span></td></tr>
+        <tr><td>Redo</td><td>Restores the reverted action.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Y</span></td></tr>
+        <tr><td>Copy</td><td>Copies selection to clipboard.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">C</span></td></tr>
+        <tr><td>Cut</td><td>Moves selection to clipboard.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">X</span></td></tr>
+        <tr><td>Paste</td><td>Inserts text from clipboard.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">V</span></td></tr>
+        <tr><td>Help</td><td>Opens this user guide.</td><td><span class="kbd">F1</span></td></tr>
+        <tr><td>About</td><td>Info about version and developer.</td><td>—</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>2. Main Menu</h2>
+
+    <h3>"File" Menu</h3>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Item</th>
+            <th class="col-desc">Description</th>
+            <th class="col-keys">Shortcut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Create</td><td>Initializes a new tab.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">N</span></td></tr>
+        <tr><td>Open</td><td>Selects a file via dialog window.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">O</span></td></tr>
+        <tr><td>Save</td><td>Quickly saves changes.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">S</span></td></tr>
+        <tr><td>Save As</td><td>Saves under a new name.</td><td>—</td></tr>
+        <tr><td>Exit</td><td>Closes the application.</td><td>—</td></tr>
+        </tbody>
+    </table>
+
+    <h3>"Edit" Menu</h3>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Item</th>
+            <th class="col-desc">Description</th>
+            <th class="col-keys">Shortcut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Undo</td><td>Undoes the last edit.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Z</span></td></tr>
+        <tr><td>Redo</td><td>Redoes the last undone edit.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Y</span></td></tr>
+        <tr><td>Cut</td><td>Deletes and copies to clipboard.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">X</span></td></tr>
+        <tr><td>Copy</td><td>Duplicates to clipboard.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">C</span></td></tr>
+        <tr><td>Paste</td><td>Inserts clipboard content.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">V</span></td></tr>
+        <tr><td>Delete</td><td>Deletes without copying.</td><td><span class="kbd">Del</span></td></tr>
+        <tr><td>Select All</td><td>Selects all text in the tab.</td><td><span class="kbd">Ctrl</span>+<span class="kbd">A</span></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>3. Additional Features</h2>
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name">Feature</th>
+            <th class="col-desc">Description</th>
+            <th class="col-keys">Control</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Drag-and-Drop</td><td>Open files by dragging them in.</td><td>Mouse</td></tr>
+        <tr><td>Zoom</td><td>Changes the font size.</td><td><span class="kbd">Ctrl</span> + Mouse Wheel</td></tr>
+        <tr><td>Language</td><td>Changes localization (RU/EN).</td><td>"Language" Menu</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align: center; font-size: 0.8em; color: #95a5a6; margin-top: 30px;">
+    &copy; 2026 Help Documentation for the "Compiler" Application.
+</div>
+
+</body>
+</html>

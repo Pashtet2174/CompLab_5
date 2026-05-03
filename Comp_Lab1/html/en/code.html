@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Source Code</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; margin-top: 30px; background: #ebf5fb; padding: 8px 15px; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        pre { background-color: #2b2b2b; color: #a9b7c6; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<h1>Application Source Code</h1>
+
+<div class="section">
+    <h2>Parser.cs</h2>
+    <pre><code>
+public class ParserError
+{
+    public Token Token { get; set; }
+    public string Message { get; set; }
+}
+
+public class Parser
+{
+    private readonly List&lt;Token&gt; _tokens;
+    public List&lt;ParserError&gt; Errors { get; } = new List&lt;ParserError&gt;();
+    
+    private readonly TokenType[] _expectedSequence = 
+    {
+        TokenType.KeywordConst,
+        TokenType.KeywordVal,
+        TokenType.Identifier,
+        TokenType.Assignment,
+        TokenType.StringConstant,
+        TokenType.Semicolon
+    };
+
+    public Parser(List&lt;Token&gt; tokens)
+    {
+        _tokens = tokens;
+    }
+
+    public void Analyze()
+    {
+        int i = 0;
+
+        while (i < _tokens.Count)
+        {
+            while (i < _tokens.Count && 
+                   _tokens[i].Code == (int)TokenType.Error) 
+            {
+                Errors.Add(new ParserError { 
+                    Token = _tokens[i], 
+                    Message = string.Format(Label.ErrLexical, _tokens[i].TypeName, _tokens[i].Value)
+                });
+                i++;
+            }
+            if (i >= _tokens.Count) break;
+            if (_tokens[i].Code != (int)TokenType.KeywordConst && _tokens[i].Code != (int)TokenType.KeywordVal)
+            {
+                // 1. Смотрим вперед: есть ли надежда найти 'const' или 'val' до конца инструкции?
+                bool foundKeywordAhead = false;
+                int scanIndex = i;
+                while (scanIndex < _tokens.Count && _tokens[scanIndex].Code != (int)TokenType.Semicolon)
+                {
+                    if (_tokens[scanIndex].Code == (int)TokenType.KeywordConst || 
+                        _tokens[scanIndex].Code == (int)TokenType.KeywordVal)
+                    {
+                        foundKeywordAhead = true;
+                        break;
+                    }
+                    scanIndex++;
+                }
+                
+                if (!foundKeywordAhead)
+                {
+                    Errors.Add(new ParserError {
+                        Token = _tokens[i],
+                        Message = Label.ErrExpectedKeyword
+                    });
+                    
+                    while (i < _tokens.Count && _tokens[i].Code != (int)TokenType.Semicolon)
+                    {
+                        if (_tokens[i].Code == (int)TokenType.Error) 
+                        {
+                            Errors.Add(new ParserError { 
+                                Token = _tokens[i], 
+                                Message = string.Format(Label.ErrLexical, _tokens[i].TypeName, _tokens[i].Value) 
+                            });
+                        }
+                        i++;
+                    }
+                    if (i < _tokens.Count) i++; 
+                    continue; 
+                }
+            }
+
+            if (i >= _tokens.Count) break;
+            int state = 0;
+            bool wasStarted = false; 
+            
+            while (state < _expectedSequence.Length && i < _tokens.Count)
+            {
+                var currentToken = _tokens[i];
+
+                if (currentToken.Code == (int)TokenType.Error)
+                {
+                    Errors.Add(new ParserError { 
+                        Token = currentToken, 
+                        Message = string.Format(Label.ErrLexical, currentToken.TypeName, currentToken.Value) 
+                    });
+
+                    if (currentToken.Value.StartsWith("\"") && _expectedSequence[state] == TokenType.StringConstant)
+                    {
+                        state++;
+                    }
+                    i++;
+                    wasStarted = true;
+                    continue;
+                }
+
+                if (currentToken.Code == (int)_expectedSequence[state])
+                {
+                    state++;
+                    i++;
+                    wasStarted = true; 
+                }
+                else
+                {
+                    bool foundExpectedAhead = false;
+                    int lookaheadIndex = i;
+
+                    while (lookaheadIndex < _tokens.Count && _tokens[lookaheadIndex].Code != (int)TokenType.Semicolon)
+                    {
+                        if (_tokens[lookaheadIndex].Code == (int)_expectedSequence[state])
+                        {
+                            foundExpectedAhead = true;
+                            break;
+                        }
+                        lookaheadIndex++;
+                    }
+
+                    if (foundExpectedAhead)
+                    {
+                        for (int k = i; k < lookaheadIndex; k++)
+                        {
+                            if (_tokens[k].Code == (int)TokenType.Error)
+                            {
+                                Errors.Add(new ParserError {
+                                    Token = _tokens[k],
+                                    Message = string.Format(Label.ErrLexical, _tokens[k].TypeName, _tokens[k].Value)
+                                });
+                            }
+                            else
+                            {
+                                Errors.Add(new ParserError {
+                                    Token = _tokens[k],
+                                    Message = string.Format(Label.ErrExtraElement, _tokens[k].Value, GetTokenName(_expectedSequence[state]))
+                                });
+                            }
+                        }
+                        i = lookaheadIndex; 
+                    }
+                    else
+                    {
+                        Errors.Add(new ParserError {
+                            Token = currentToken,
+                            Message = string.Format(Label.ErrMissingElement, GetTokenName(_expectedSequence[state]))
+                        });
+                        
+                        state++; 
+                        wasStarted = true;
+                    }
+                }
+            }
+
+            while (wasStarted && state < _expectedSequence.Length && i >= _tokens.Count)
+            {
+                var lastToken = _tokens.LastOrDefault() ?? new Token { Line = 1, StartPos = 1, EndPos = 1 };
+                Errors.Add(new ParserError 
+                {
+                    Token = lastToken,
+                    Message = string.Format(Label.ErrUnexpectedEOF, GetTokenName(_expectedSequence[state]))
+                });
+                state++;
+            }
+        }
+    }
+    private string GetTokenName(TokenType type)
+    {
+        switch (type)
+        {
+            case TokenType.KeywordConst: return "const";
+            case TokenType.KeywordVal: return "val";
+            case TokenType.Identifier: return Label.TypeIdentifier;
+            case TokenType.Assignment: return "=";
+            case TokenType.StringConstant: return Label.TypeString;
+            case TokenType.Semicolon: return ";";
+            default: return type.ToString();
+        }
+    }
+}
+</code></pre>
+    <h2>Scanner.cs</h2>
+    <pre><code>namespace Comp_Lab1
+{
+    public enum TokenType
+    {
+        KeywordConst = 1,  // const
+        KeywordVal = 2,    // val
+        Identifier = 3,    // Имена 
+        StringConstant = 4, // "строковая константа"
+        Assignment = 10,   // =
+        Semicolon = 16,    // ;
+        Error = 99         // ошибка
+    }
+
+    public class Token
+    {
+        public int Code { get; set; }
+        public string TypeName { get; set; }
+        public string Value { get; set; }
+        public int Line { get; set; }
+        public int StartPos { get; set; }
+        public int EndPos { get; set; }
+    }
+
+    public class Scanner
+    {
+        private readonly string _source;
+        private readonly Dictionary&lt;string, TokenType&gt; _keywords = new Dictionary&lt;string, TokenType&gt; 
+        { 
+            { "const", TokenType.KeywordConst }, 
+            { "val", TokenType.KeywordVal } 
+        };
+
+        public Scanner(string source)
+        {
+            _source = source;
+        } 
+
+        public List&lt;Token&gt; Analyze()
+        {
+            var tokens = new List&lt;Token&gt;();
+            int i = 0;
+            int currentLine = 1;
+            int lineStartPos = 0;
+
+            while (i < _source.Length)
+            {
+                char c = _source[i];
+                int startInLine = i - lineStartPos + 1;
+
+                if (char.IsWhiteSpace(c))
+                {
+                    if (c == '\n') 
+                    { 
+                        currentLine++; 
+                        lineStartPos = i + 1; 
+                    }
+                    i++;
+                    continue; 
+                }
+
+                if (c == '"')
+                {
+                    int start = i;
+                    i++; 
+                    
+                    while (i < _source.Length && _source[i] != '"' && _source[i] != '\n') 
+                    {
+                        i++;
+                    }
+
+                    if (i < _source.Length && _source[i] == '"')
+                    {
+                        i++;
+                        string val = _source.Substring(start, i - start);
+                        tokens.Add(CreateToken(TokenType.StringConstant, Label.TypeString, val, currentLine, startInLine, i - lineStartPos));
+                    }
+                    else
+                    {
+                        tokens.Add(CreateToken(TokenType.Error, Label.TypeErrorString, _source.Substring(start, i - start), currentLine, startInLine, i - lineStartPos));
+                    }
+                    continue;
+                }
+
+                if (c == '=')
+                {
+                    tokens.Add(CreateToken(TokenType.Assignment, Label.TypeAssign, "=", currentLine, startInLine, startInLine));
+                    i++; 
+                    continue;
+                }
+                if (c == ';')
+                {
+                    tokens.Add(CreateToken(TokenType.Semicolon, Label.TypeSemicolon, ";", currentLine, startInLine, startInLine));
+                    i++; 
+                    continue;
+                }
+
+                int wordStart = i;
+                while (i < _source.Length)
+                {
+                    char ch = _source[i];
+                    if (char.IsWhiteSpace(ch) || ch == '"' || ch == '=' || ch == ';')
+                    {
+                        break;
+                    }
+                    i++;
+                }
+
+                string word = _source.Substring(wordStart, i - wordStart);
+
+                if (IsValidIdentifier(word))
+                {
+                    if (_keywords.TryGetValue(word, out TokenType keywordType))
+                    {
+                        tokens.Add(CreateToken(keywordType, Label.TypeKeyword, word, currentLine, startInLine, i - lineStartPos));
+                    }
+                    else
+                    {
+                        tokens.Add(CreateToken(TokenType.Identifier, Label.TypeIdentifier, word, currentLine, startInLine, i - lineStartPos));
+                    }
+                }
+                else
+                {
+                    tokens.Add(CreateToken(TokenType.Error, Label.TypeErrorSymbol, word, currentLine, startInLine, i - lineStartPos));
+                }
+            }
+            return tokens;
+        }
+
+        private bool IsValidIdentifier(string word)
+        {
+            if (string.IsNullOrEmpty(word)) return false;
+
+            if (!char.IsLetter(word[0]) && word[0] != '_') return false;
+            for (int k = 1; k < word.Length; k++)
+            {
+                if (!char.IsLetterOrDigit(word[k]) && word[k] != '_') return false;
+            }
+
+            return true;
+        }
+
+        private Token CreateToken(TokenType type, string name, string val, int line, int start, int end)
+        {
+            return new Token { Code = (int)type, TypeName = name, Value = val, Line = line, StartPos = start, EndPos = end };
+        }
+    }
+}
+    </code></pre>
+</div>
+
+</body>
+</html>

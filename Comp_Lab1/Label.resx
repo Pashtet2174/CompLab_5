@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+    
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true"></xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMsg" xml:space="preserve">
+    <value>Текстовый редактор / Языковой процессор
+Версия 1.0
+Разработчик: Обеленец Павел</value>
+  </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Текстовый редактор / Языковой процессор
+Версия 1.0
+Разработчик: Обеленец Павел</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="AnalysisErrorCount" xml:space="preserve">
+    <value>Общее количество ошибок: {0}</value>
+  </data>
+  <data name="AnalysisNoErrors" xml:space="preserve">
+    <value>Синтаксический анализ: Ошибок нет.</value>
+  </data>
+  <data name="AnalysisSuccess" xml:space="preserve">
+    <value>Анализ завершен успешно. Ошибок не обнаружено!</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Компилятор</value>
+  </data>
+  <data name="colCode" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="ColFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="colFragment" xml:space="preserve">
+    <value>Неверный фрагмент</value>
+  </data>
+  <data name="ColLine" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="ColMessage" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="colPos" xml:space="preserve">
+    <value>Местоположение</value>
+  </data>
+  <data name="colType" xml:space="preserve">
+    <value>Тип лексемы</value>
+  </data>
+  <data name="ErrEmptyInput" xml:space="preserve">
+    <value>Ошибка: пустой текст.</value>
+  </data>
+  <data name="ErrEmptyMsg" xml:space="preserve">
+    <value>Пожалуйста, введите код для анализа.</value>
+  </data>
+  <data name="ErrEmptyStatus" xml:space="preserve">
+    <value>Ошибка: пустой текст.</value>
+  </data>
+  <data name="ErrEmptyTitle" xml:space="preserve">
+    <value>Пустой ввод</value>
+  </data>
+  <data name="ErrExpectedKeyword" xml:space="preserve">
+    <value>Ожидалось ключевое слово.</value>
+  </data>
+  <data name="ErrExtraElement" xml:space="preserve">
+    <value>Лишний элемент '{0}' перед '{1}'</value>
+  </data>
+  <data name="ErrFileNotFound" xml:space="preserve">
+    <value>Файл не найден!
+Проверьте, что он скопирован в: {0}</value>
+  </data>
+  <data name="ErrFileRead" xml:space="preserve">
+    <value>Ошибка: </value>
+  </data>
+  <data name="ErrLexical" xml:space="preserve">
+    <value>Лексическая ошибка: {0} '{1}'</value>
+  </data>
+  <data name="ErrMissingElement" xml:space="preserve">
+    <value>Пропущен обязательный элемент: '{0}'</value>
+  </data>
+  <data name="ErrNoTabs" xml:space="preserve">
+    <value>Ошибка: нет открытых вкладок.</value>
+  </data>
+  <data name="ErrNoTabsMsg" xml:space="preserve">
+    <value>Сначала создайте или откройте файл для анализа.</value>
+  </data>
+  <data name="ErrNoTabsStatus" xml:space="preserve">
+    <value>Ошибка: нет открытых вкладок.</value>
+  </data>
+  <data name="ErrNoTabsTitle" xml:space="preserve">
+    <value>Вкладка не найдена</value>
+  </data>
+  <data name="ErrOpenPage" xml:space="preserve">
+    <value>Не удалось открыть страницу: {0}</value>
+  </data>
+  <data name="ErrOpenPage1" xml:space="preserve">
+    <value>Не удалось открыть страницу: </value>
+  </data>
+  <data name="ErrorLocationFormat" xml:space="preserve">
+    <value>строка {0}, поз. {1}</value>
+  </data>
+  <data name="ErrPrefix" xml:space="preserve">
+    <value>Ошибка: </value>
+  </data>
+  <data name="ErrUnexpectedEOF" xml:space="preserve">
+    <value>Неожиданный конец кода. Не хватает: '{0}'</value>
+  </data>
+  <data name="ExitConfirm" xml:space="preserve">
+    <value>Сохранить изменения в файле {0}?</value>
+  </data>
+  <data name="ExitTitle" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="FileNotFoundMsg" xml:space="preserve">
+    <value>Файл не найден!
+Проверьте путь: {0}</value>
+  </data>
+  <data name="FileSaved" xml:space="preserve">
+    <value>Файл успешно сохранен.</value>
+  </data>
+  <data name="GridLocation" xml:space="preserve">
+    <value>строка {0}, поз. {1}</value>
+  </data>
+  <data name="LangEn" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="LangRu" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="MenuClass" xml:space="preserve">
+    <value>Классификация грамматики</value>
+  </data>
+  <data name="MenuCopy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="MenuCreate" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="MenuCut" xml:space="preserve">
+    <value>Вырезать</value>
+  </data>
+  <data name="MenuDelete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="MenuDocs" xml:space="preserve">
+    <value>Список литературы</value>
+  </data>
+  <data name="MenuEdit" xml:space="preserve">
+    <value>Правка</value>
+  </data>
+  <data name="MenuExample" xml:space="preserve">
+    <value>Тестовый пример</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="MenuFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="MenuGrammar" xml:space="preserve">
+    <value>Грамматика</value>
+  </data>
+  <data name="MenuHelpRoot" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="MenuLangRoot" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="MenuMethod" xml:space="preserve">
+    <value>Метод анализа</value>
+  </data>
+  <data name="MenuOpen" xml:space="preserve">
+    <value>Открыть</value>
+  </data>
+  <data name="MenuPaste" xml:space="preserve">
+    <value>Вставить</value>
+  </data>
+  <data name="MenuRedo" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="MenuRun" xml:space="preserve">
+    <value>Пуск</value>
+  </data>
+  <data name="MenuSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="MenuSaveAs" xml:space="preserve">
+    <value>Сохранить как</value>
+  </data>
+  <data name="MenuSelectAll" xml:space="preserve">
+    <value>Выделить всё</value>
+  </data>
+  <data name="MenuShowHelp" xml:space="preserve">
+    <value>Вызов справки</value>
+  </data>
+  <data name="MenuSource" xml:space="preserve">
+    <value>Исходный код программы</value>
+  </data>
+  <data name="MenuTask" xml:space="preserve">
+    <value>Постановка задачи</value>
+  </data>
+  <data name="MenuText" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="MenuUndo" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="MsgEnterCode" xml:space="preserve">
+    <value>Пожалуйста, введите код для анализа.</value>
+  </data>
+  <data name="MsgLine" xml:space="preserve">
+    <value>стр.</value>
+  </data>
+  <data name="MsgOpenFirst" xml:space="preserve">
+    <value>Сначала создайте или откройте файл для анализа.</value>
+  </data>
+  <data name="NewFile" xml:space="preserve">
+    <value>Новый файл</value>
+</data>
+  <data name="ParserErrorCount" xml:space="preserve">
+    <value>Общее количество ошибок: {0}</value>
+  </data>
+  <data name="ParserResultTitle" xml:space="preserve">
+    <value>Результат анализа</value>
+  </data>
+  <data name="ParserSuccessMsg" xml:space="preserve">
+    <value>Анализ завершен успешно. Ошибок не обнаружено!</value>
+  </data>
+  <data name="ParserSuccessStatus" xml:space="preserve">
+    <value>Синтаксический анализ: Ошибок нет.</value>
+  </data>
+  <data name="SaveConfirmMsg" xml:space="preserve">
+    <value>Сохранить изменения в файле {0}?</value>
+  </data>
+  <data name="StatusLineFormat" xml:space="preserve">
+    <value>Строка: {0} | Всего строк: {1}</value>
+  </data>
+  <data name="StatusLines" xml:space="preserve">
+    <value>Строка: {0} | Всего строк: {1}</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Готов</value>
+  </data>
+  <data name="TitleAnalysisResult" xml:space="preserve">
+    <value>Результат анализа</value>
+  </data>
+  <data name="TitleEmptyInput" xml:space="preserve">
+    <value>Пустой ввод</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="TitleTabNotFound" xml:space="preserve">
+    <value>Вкладка не найдена</value>
+  </data>
+  <data name="TypeAssign" xml:space="preserve">
+    <value>оператор присваивания</value>
+  </data>
+  <data name="TypeErrorString" xml:space="preserve">
+    <value>незакрытая строка</value>
+  </data>
+  <data name="TypeErrorSymbol" xml:space="preserve">
+    <value>недопустимый символ</value>
+  </data>
+  <data name="TypeIdentifier" xml:space="preserve">
+    <value>идентификатор</value>
+  </data>
+  <data name="TypeKeyword" xml:space="preserve">
+    <value>ключевое слово</value>
+  </data>
+  <data name="TypeSemicolon" xml:space="preserve">
+    <value>конец оператора</value>
+  </data>
+  <data name="TypeString" xml:space="preserve">
+    <value>строковая константа</value>
+  </data>
+  <data name="TypeWhitespace" xml:space="preserve">
+    <value>пробел</value>
+  </data>
+</root>

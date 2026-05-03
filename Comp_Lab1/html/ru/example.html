@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовые примеры — Компилятор</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        h2 { color: #2980b9; margin-top: 30px; background: #ebf5fb; padding: 8px 15px; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .example-card { border: 1px solid #e1e8ed; border-radius: 8px; padding: 15px; margin-bottom: 25px; background: #fff; }
+        .example-card p { margin: 5px 0; }
+        .status-ok { color: #27ae60; font-weight: bold; }
+        .status-error { color: #c0392b; font-weight: bold; }
+        .code-box { background: #2c3e50; color: #ecf0f1; padding: 8px 12px; border-radius: 4px; font-family: 'Consolas', monospace; display: inline-block; margin: 10px 0; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+<h1>Тестовые примеры</h1>
+
+<div class="section">
+    <p>В данном разделе приведены результаты работы синтаксического анализатора для различных входных данных.</p>
+
+    <div class="example-card">
+        <h2>Пример 1: Корректный ввод</h2>
+        <p><span class="status-ok">Статус:</span> Ошибок не обнаружено</p>
+        <div class="code-box">const val hi = "hello";</div>
+        <img src="../../Img/example4.png" alt="Корректный ввод">
+    </div>
+
+    <div class="example-card">
+        <h2>Пример 2: Синтаксическая ошибка</h2>
+        <p><span class="status-error">Ошибка:</span> Пропуск точки с запятой в конце выражения</p>
+        <div class="code-box">const val hi = "hello"</div>
+        <img src="../../Img/example5.png" alt="Ошибка точки с запятой">
+    </div>
+
+    <div class="example-card">
+        <h2>Пример 3: Недопустимые символы</h2>
+        <p><span class="status-error">Ошибка:</span> Лексическая ошибка (символы @ не входят в алфавит)</p>
+        <div class="code-box">cons##t val zzz = "hello";</div>
+        <img src="../../Img/example6.png" alt="Недопустимые символы">
+    </div>
+
+    <div class="example-card">
+        <h2>Пример 4: Многострочный ввод с ошибками</h2>
+        <p>Ниже представлен пример кода с нарушением синтаксиса на нескольких строках:</p>
+
+        <pre class="code-box" style="display: block; width: auto; white-space: pre; padding: 15px;"><code>const val a = "first
+const v@al b = "second";
+const val c  "third";</code></pre>
+
+        <img src="../../Img/example7.png" alt="Многострочный ввод">
+    </div>
+
+</div>
+
+<div style="text-align: center; font-size: 0.8em; color: #95a5a6; margin-top: 30px;">
+    &copy; 2026 Справочная документация приложения "Компилятор".
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grammar Classification</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; text-align: center; }
+        .section { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+
+        /* Updated style for code highlighting */
+        .code-highlight {
+            background-color: #e9ecef; /* Light gray background */
+            color: #0056b3;           /* Rich blue text color */
+            padding: 4px 12px;
+            border: 1px solid #dee2e6; /* Thin border for clarity */
+            border-radius: 4px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-weight: 600;
+            white-space: nowrap;      /* Prevent line breaks */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Grammar Classification</h1>
+
+<div class="section">
+    <p>The grammar is classified as a <b>regular (automaton) grammar</b> because all its rules follow the right-linear form
+        <span class="code-highlight">A &rarr; aB | a | &epsilon;</span>
+        and can be equivalently represented as a deterministic finite automaton (DFA).
+    </p>
+    <p>The construction does not contain nesting and is processed through sequential state transitions.</p>
+</div>
+
+</body>
+</html>
