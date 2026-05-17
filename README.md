@@ -46,16 +46,16 @@ Value : Текстовое значение строки.
 Строка: const val a = "b";
 
 
-![Пример](Img/AST.png)
+![Пример](Comp_Lab1/Img/AST.png)
 ## c) Формат вывода AST в программе:
 Строка: const val id= "ast";
 
 
-![Пример](Img/example11.png)
+![Пример](Comp_Lab1/Img/example11.png)
 
 # Тестовые примеры
 1) Пример Повторное объявление:
-![Пример](Img/example12.png)
+![Пример](Comp_Lab1/Img/example12.png)
 
 # Инструкция по запуску: 
 # Инструкция по запуску проекта из Git-репозитория
@@ -106,4 +106,4 @@ SkiaSharp.Views.Desktop
 ```
 const val id = "ast";
 ```
-![Пример](Img/example13.png)
+![Пример](Comp_Lab1/Img/example13.png)
