@@ -76,7 +76,9 @@ partial class Form1
         toolStripButton8 = new System.Windows.Forms.ToolStripButton();
         splitContainer1 = new System.Windows.Forms.SplitContainer();
         tabControlEditor = new System.Windows.Forms.TabControl();
+        splitContainer2 = new System.Windows.Forms.SplitContainer();
         rtbAstOutput = new System.Windows.Forms.RichTextBox();
+        rtbIROutput = new System.Windows.Forms.RichTextBox();
         dgvErrors = new System.Windows.Forms.DataGridView();
         colFragment = new System.Windows.Forms.DataGridViewTextBoxColumn();
         colPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +91,10 @@ partial class Form1
         splitContainer1.Panel1.SuspendLayout();
         splitContainer1.Panel2.SuspendLayout();
         splitContainer1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+        splitContainer2.Panel1.SuspendLayout();
+        splitContainer2.Panel2.SuspendLayout();
+        splitContainer2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvErrors).BeginInit();
         statusStrip1.SuspendLayout();
         SuspendLayout();
@@ -101,10 +107,10 @@ partial class Form1
         menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
         menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { файлToolStripMenuItem, текстToolStripMenuItem, текстToolStripMenuItem1, пускToolStripMenuItem, справкаToolStripMenuItem, языкToolStripMenuItem, btnShowAst });
         menuStrip1.Location = new System.Drawing.Point(0, 0);
-        menuStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 74794);
+        menuStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 116865);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new System.Windows.Forms.Padding(0);
-        menuStrip1.Size = new System.Drawing.Size(1738, 29);
+        menuStrip1.Size = new System.Drawing.Size(1366, 29);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -310,14 +316,14 @@ partial class Form1
         // русскийToolStripMenuItem
         // 
         русскийToolStripMenuItem.Name = "русскийToolStripMenuItem";
-        русскийToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+        русскийToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
         русскийToolStripMenuItem.Text = "Русский";
         русскийToolStripMenuItem.Click += russianToolStripMenuItem_Click;
         // 
         // английскийToolStripMenuItem
         // 
         английскийToolStripMenuItem.Name = "английскийToolStripMenuItem";
-        английскийToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+        английскийToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
         английскийToolStripMenuItem.Text = "Английский";
         английскийToolStripMenuItem.Click += englishToolStripMenuItem_Click;
         // 
@@ -337,7 +343,7 @@ partial class Form1
         toolStrip1.Location = new System.Drawing.Point(0, 29);
         toolStrip1.Name = "toolStrip1";
         toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-        toolStrip1.Size = new System.Drawing.Size(1738, 47);
+        toolStrip1.Size = new System.Drawing.Size(1366, 47);
         toolStrip1.TabIndex = 0;
         toolStrip1.Text = "toolStrip1";
         // 
@@ -459,7 +465,7 @@ partial class Form1
         splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
         splitContainer1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
         splitContainer1.Location = new System.Drawing.Point(0, 76);
-        splitContainer1.Margin = new System.Windows.Forms.Padding(587458496, 75, 587458496, 75);
+        splitContainer1.Margin = new System.Windows.Forms.Padding(917903936, 118, 917903936, 118);
         splitContainer1.Name = "splitContainer1";
         splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
         // 
@@ -469,11 +475,11 @@ partial class Form1
         // 
         // splitContainer1.Panel2
         // 
-        splitContainer1.Panel2.Controls.Add(rtbAstOutput);
+        splitContainer1.Panel2.Controls.Add(splitContainer2);
         splitContainer1.Panel2.Controls.Add(dgvErrors);
-        splitContainer1.Size = new System.Drawing.Size(1738, 1000);
-        splitContainer1.SplitterDistance = 401;
-        splitContainer1.SplitterWidth = 98;
+        splitContainer1.Size = new System.Drawing.Size(1366, 955);
+        splitContainer1.SplitterDistance = 382;
+        splitContainer1.SplitterWidth = 50;
         splitContainer1.TabIndex = 2;
         splitContainer1.Text = "splitContainer1";
         // 
@@ -482,25 +488,55 @@ partial class Form1
         tabControlEditor.AllowDrop = true;
         tabControlEditor.Dock = System.Windows.Forms.DockStyle.Fill;
         tabControlEditor.Location = new System.Drawing.Point(0, 0);
-        tabControlEditor.Margin = new System.Windows.Forms.Padding(6890, 75, 6890, 75);
+        tabControlEditor.Margin = new System.Windows.Forms.Padding(10765, 118, 10765, 118);
         tabControlEditor.Name = "tabControlEditor";
         tabControlEditor.SelectedIndex = 0;
-        tabControlEditor.Size = new System.Drawing.Size(1738, 401);
+        tabControlEditor.Size = new System.Drawing.Size(1366, 382);
         tabControlEditor.TabIndex = 0;
         tabControlEditor.DragDrop += Form1_DragDrop;
         tabControlEditor.DragEnter += Form1_DragEnter;
         // 
+        // splitContainer2
+        // 
+        splitContainer2.Dock = System.Windows.Forms.DockStyle.Bottom;
+        splitContainer2.Location = new System.Drawing.Point(0, 88);
+        splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+        splitContainer2.Name = "splitContainer2";
+        // 
+        // splitContainer2.Panel1
+        // 
+        splitContainer2.Panel1.Controls.Add(rtbAstOutput);
+        // 
+        // splitContainer2.Panel2
+        // 
+        splitContainer2.Panel2.Controls.Add(rtbIROutput);
+        splitContainer2.Size = new System.Drawing.Size(1366, 435);
+        splitContainer2.SplitterDistance = 455;
+        splitContainer2.SplitterWidth = 5;
+        splitContainer2.TabIndex = 2;
+        splitContainer2.Text = "splitContainer2";
+        // 
         // rtbAstOutput
         // 
-        rtbAstOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
+        rtbAstOutput.Dock = System.Windows.Forms.DockStyle.Fill;
         rtbAstOutput.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        rtbAstOutput.Location = new System.Drawing.Point(0, 152);
-        rtbAstOutput.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+        rtbAstOutput.Location = new System.Drawing.Point(0, 0);
+        rtbAstOutput.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
         rtbAstOutput.Name = "rtbAstOutput";
         rtbAstOutput.ReadOnly = true;
-        rtbAstOutput.Size = new System.Drawing.Size(1738, 349);
+        rtbAstOutput.Size = new System.Drawing.Size(455, 435);
         rtbAstOutput.TabIndex = 1;
         rtbAstOutput.Text = "";
+        // 
+        // rtbIROutput
+        // 
+        rtbIROutput.Dock = System.Windows.Forms.DockStyle.Fill;
+        rtbIROutput.Location = new System.Drawing.Point(0, 0);
+        rtbIROutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+        rtbIROutput.Name = "rtbIROutput";
+        rtbIROutput.Size = new System.Drawing.Size(906, 435);
+        rtbIROutput.TabIndex = 0;
+        rtbIROutput.Text = "";
         // 
         // dgvErrors
         // 
@@ -508,7 +544,7 @@ partial class Form1
         dgvErrors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { colFragment, colPos, ColMessage });
         dgvErrors.Dock = System.Windows.Forms.DockStyle.Fill;
         dgvErrors.Location = new System.Drawing.Point(0, 0);
-        dgvErrors.Margin = new System.Windows.Forms.Padding(1376, 75, 1376, 75);
+        dgvErrors.Margin = new System.Windows.Forms.Padding(2150, 118, 2150, 118);
         dgvErrors.Name = "dgvErrors";
         dgvErrors.ReadOnly = true;
         dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
@@ -521,7 +557,7 @@ partial class Form1
         dgvErrors.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvErrors.RowHeadersWidth = 51;
         dgvErrors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-        dgvErrors.Size = new System.Drawing.Size(1738, 501);
+        dgvErrors.Size = new System.Drawing.Size(1366, 523);
         dgvErrors.TabIndex = 0;
         dgvErrors.Text = "dataGridView1";
         // 
@@ -554,10 +590,10 @@ partial class Form1
         // 
         statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
         statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { lblStatus });
-        statusStrip1.Location = new System.Drawing.Point(0, 1054);
+        statusStrip1.Location = new System.Drawing.Point(0, 1009);
         statusStrip1.Name = "statusStrip1";
-        statusStrip1.Padding = new System.Windows.Forms.Padding(289, 0, 3070, 0);
-        statusStrip1.Size = new System.Drawing.Size(1738, 22);
+        statusStrip1.Padding = new System.Windows.Forms.Padding(451, 0, 4798, 0);
+        statusStrip1.Size = new System.Drawing.Size(1366, 22);
         statusStrip1.TabIndex = 1;
         // 
         // lblStatus
@@ -571,7 +607,7 @@ partial class Form1
         AllowDrop = true;
         AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1738, 1076);
+        ClientSize = new System.Drawing.Size(1366, 1031);
         Controls.Add(statusStrip1);
         Controls.Add(splitContainer1);
         Controls.Add(toolStrip1);
@@ -594,12 +630,20 @@ partial class Form1
         splitContainer1.Panel2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
         splitContainer1.ResumeLayout(false);
+        splitContainer2.Panel1.ResumeLayout(false);
+        splitContainer2.Panel2.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+        splitContainer2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvErrors).EndInit();
         statusStrip1.ResumeLayout(false);
         statusStrip1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.RichTextBox rtbIROutput;
+
+    private System.Windows.Forms.SplitContainer splitContainer2;
 
     private System.Windows.Forms.ToolStripMenuItem btnShowAst;
 

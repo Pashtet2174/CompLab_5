@@ -164,7 +164,8 @@ public partial class Form1 : Form
 
         dgvErrors.Rows.Clear();
         rtbAstOutput.Clear(); 
-
+        if (rtbIROutput != null) rtbIROutput.Clear();
+        
         var scanner = new Scanner(CurrentEditor.Text);
         var allTokens = scanner.Analyze();
         var parser = new Parser(allTokens);
@@ -195,6 +196,23 @@ public partial class Form1 : Form
         {
             lblStatus.Text = Label.ParserSuccessStatus;
             lblStatus.ForeColor = Color.Green;
+            if (_lastSemanticAnalyzer.AstRoots.Any() && _lastSemanticAnalyzer.AstRoots[0] is ConstDeclNode rootNode)
+            {
+                var optimizer = new Optimizer();
+                string report = optimizer.RunOptimizations(rootNode);
+            
+                if (rtbIROutput != null)
+                {
+                    rtbIROutput.Text = report;
+                }
+            }
+            else
+            {
+                if (rtbIROutput != null)
+                {
+                    rtbIROutput.Text = "AST не содержит конструкцию константы для генерации IR и оптимизации.";
+                }
+            }
             MessageBox.Show(Label.ParserSuccessMsg, 
                 Label.ParserResultTitle, 
                 MessageBoxButtons.OK, 
